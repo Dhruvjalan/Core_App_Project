@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const userRoutes = require('./routes/userroutes');
+const userRoutes = require('./routes/UserRoutes');
+const recordroutes = require('./routes/recordroutes');
 const cors = require('cors');
 const connectDB = require('./config/db');
 dotenv.config();
@@ -29,6 +30,7 @@ app.get('/login', (req, res) => {
         message: "Server is live! Hello World." 
     });
 });
+app.use('/api/records', recordroutes);
 
 // 4. Start the Server
 app.listen(PORT, () => {

@@ -1,0 +1,27 @@
+const mongoose = require('mongoose');
+
+const IFStudentSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true },
+  roll: { type: String },
+  phone: { type: Number },
+  department: { type: String },
+  degree: { type: String },
+  yearOfStudy: { type: Number },
+  cgpa: { type: Number },
+  address: { type: String },
+  personalEmail: { type: String },
+  iddd: { type: String },
+  pinCode: { type: Number },
+  allottedSSManager: {
+    name: { type: String },
+    phone: { type: String }
+  },
+  preferredLocation: { type: String },
+  paymentDetails: {
+    captured: { type: Boolean, default: false }
+  },
+  skillTags: [{ type: String }]
+});
+
+module.exports = mongoose.model('IFStudent', IFStudentSchema, 'if_students');
